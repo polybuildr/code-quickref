@@ -1,5 +1,7 @@
 # C++ Standard Library Quickref
 
+In case of any mistakes below, please please [file an issue on the GitHub repo](https://github.com/polybuildr/code-quickref/issues/new).
+
 ## Contents
 
 - Containers
