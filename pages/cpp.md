@@ -52,6 +52,14 @@ mp.empty(); // = true
 // etc.
 ```
 
+### bits/stdc++.h
+
+When **not writing production code**, instead of including all the respective header files required, just the <code class="language-cpp">&lt;bits/stdc++.h&gt;</code> header file can be included.
+
+```cpp
+#include <bits/stdc++.h>
+```
+
 ## Vector
 
 ```cpp
