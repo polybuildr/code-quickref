@@ -104,12 +104,13 @@ p.second; // 10
 p.first = 10;
 p.first; // 10
 
-// another way to initialize
+// another way to initialize in C++11
 auto p2 = make_pair(5, 10); // types are inferred
 </code></pre>
 <p><small class="to-top"><a href="#contents">▲ back to top</a></small></p>
 <h2 id="map">Map</h2>
 <p>C++11 has two kinds of maps: <code class="language-cpp">map</code> (logarithmic time operations)and <code class="language-cpp">unordered_map</code> (average constant time operations).</p>
+<p>Note: <code class="language-cpp">unordered_map</code>s cannot have keys that can&#39;t be hashed. For example, a <code class="language-cpp">pair&lt;int, int&gt;</code> as the key will not work. They can still be used in normal maps, though.</p>
 <pre><code class="lang-cpp">#include &lt;map&gt;
 
 // initialization

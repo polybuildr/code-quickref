@@ -119,6 +119,8 @@ auto p2 = make_pair(5, 10); // types are inferred
 
 C++11 has two kinds of maps: <code class="language-cpp">map</code> (logarithmic time operations)and <code class="language-cpp">unordered_map</code> (average constant time operations).
 
+Note: <code class="language-cpp">unordered_map</code>s cannot have keys that can't be hashed. For example, a <code class="language-cpp">pair&lt;int, int&gt;</code> as the key will not work. They can still be used in normal maps, though.
+
 ```cpp
 #include <map>
 
