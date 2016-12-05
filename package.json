@@ -1,0 +1,11 @@
+{
+  "name": "code-quickref",
+  "version": "0.0.1",
+  "scripts": {
+  },
+  "author": "Vivek Ghaisas <v.a.ghaisas@gmail.com>",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "marked": "^0.3.6"
+  }
+}

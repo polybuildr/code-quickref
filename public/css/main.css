@@ -1,0 +1,42 @@
+body {
+    font-family: sans-serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+}
+
+.page {
+    width: 75%;
+    margin: auto;
+}
+
+a {
+    color: #057cb8;
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom-color: #057cb8;
+}
+
+@media screen and (max-width: 400px) {
+    body {
+        font-size: 14px;
+    }
+
+    .page {
+        width: 100%;
+    }
+
+    h1, h2, h3, p {
+        padding: 0 10px;
+    }
+
+    pre[class*="language-"] {
+        box-shadow: 0 0 1px 1px #ddd inset;
+        padding: .5em;
+        margin: 5px;
+    }
+}

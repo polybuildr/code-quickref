@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>C++ Standard Library Quick-ref</title>
+        <link rel="stylesheet" href="css/prism.css" charset="utf-8">
+        <link rel="stylesheet" href="css/main.css" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="page">
+            <h1 id="c-standard-library-quick-ref">C++ Standard Library Quick-ref</h1>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#vector">Vector</a></li>
+<li><a href="#map">Map</a></li>
+<li><a href="#set">Set</a></li>
+<li><a href="#stack">Stack</a></li>
+<li><a href="#queue">Queue</a></li>
+<li><a href="#deque">Deque</a></li>
+<li><a href="#priority-queue">Priority Queue</a></li>
+<li><a href="#sort">Sort</a></li>
+</ul>
+<h2 id="vector">Vector</h2>
+<pre><code class="lang-cpp">#include &lt;vector&gt;
+
+// initialization
+vector&lt;int&gt; vec;
+
+// insertion
+vec.push_back(42);
+
+// access
+vec[0]; // = 42
+
+// iteration
+for (int i = 0; i &lt; vec.size(); ++i) {
+    vec[i]; // = 42
+}
+</code></pre>
+<h2 id="map">Map</h2>
+<p>C++11 has two kinds of maps: <code class="language-cpp">map</code> (logarithmic time operations)and <code class="language-cpp">unordered_map</code> (constant time operations).</p>
+<pre><code class="lang-cpp">#include &lt;map&gt;
+
+// initialization
+
+// O (log n) insert, access, delete
+map&lt;int, int&gt; mp;
+
+// O (1) insert, access, delete
+// same signatures as normal map&lt;&gt;
+unordered_map&lt;int, int&gt; omp;
+
+// map&lt;&gt; keys are sorted in ascending order
+// you can choose descending order:
+map&lt;int, int, std::greater&lt;int&gt; &gt; mp2;
+// #include &lt;functional&gt; for std::greater
+// default is std::less&lt;int&gt;
+
+// insertion
+mp[2] = 4;
+mp[3] = 9;
+
+// access
+mp[2]; // = 4
+
+// check for existence
+mp.find(2) != mp.end(); // true
+mp.find(234) != mp.end(); // false
+mp.count(2); // = 1
+mp.count(234); // = 0
+
+// deletion
+mp.erase(2) // removes {2: 4}
+
+// iteration
+for (auto it = mp.begin(); it != mp.end(); ++it) {
+    // iterator is a pair of (key, value)
+    it-&gt;first; // key
+    it-&gt;second; // value
+}
+
+// C++11 style iteration
+for (auto kv: mp) {
+    // to avoid making copies, use:
+    // (auto &amp;kv: mp)
+
+    mp.first; // key
+    mp.second; // value
+}
+</code></pre>
+<h2 id="set">Set</h2>
+<p>C++11 has two kinds of sets: <code class="language-cpp">set</code> (logarithmic time operations) and <code class="language-cpp">unordered_set</code> (constant time operations).</p>
+<pre><code class="lang-cpp">#include &lt;set&gt;
+
+set&lt;int&gt; st;
+
+// insertion
+st.insert(42);
+st.insert(7);
+
+// check existence
+st.find(42) != st.end(); // true
+st.find(234) != st.end(); // false
+st.count(42); // = 1
+st.count(234); // = 0
+
+// iteration
+for (auto it = st.begin(); it != st.end(); ++it) {
+    *it; // = 7, 42
+}
+
+// C++ 11 style iteration
+for (int x: st) {
+    x; // = 7, 42
+}
+
+// deletion
+st.erase(7); // removes 7
+</code></pre>
+<h2 id="stack">Stack</h2>
+<p>Stacks are LIFO (last in first out) containers.</p>
+<pre><code class="lang-cpp">#include &lt;stack&gt;
+
+// initialization
+stack&lt;int&gt; stk;
+
+// insertion
+stk.push(42);
+
+// access
+stk.top(); // = 42
+
+// size
+stk.size(); // = 1
+
+// deletion
+stk.pop(); // removes 42
+
+// size
+stk.size(); // = 0
+</code></pre>
+<h2 id="queue">Queue</h2>
+<p>A FIFO (first in first out) container.</p>
+<pre><code class="lang-cpp">#include &lt;queue&gt;
+
+// initialization
+queue&lt;int&gt; q;
+
+// insertion
+q.push_back(42);
+q.push_back(7);
+q.push_back(0);
+
+// access
+q.front(); // = 42
+
+// front -&gt; [42, 7, 0] &lt;- back
+
+// size
+q.size(); // = 3
+
+// deletion
+q.pop_front(); // removes 42
+
+q.front(); // = 7
+
+q.pop_front(); // removes 7
+
+// size
+q.size(); // = 1
+</code></pre>
+<h2 id="deque">Deque</h2>
+<p>A double-ended queue.</p>
+<pre><code class="lang-cpp">#include &lt;deque&gt;
+
+deque&lt;int&gt; dq;
+
+// insertion
+dq.push_back(3);
+dq.push_back(4);
+dq.push_front(2);
+dq.push_front(1);
+
+// front -&gt; [1, 2, 3, 4] &lt;- back
+
+// access
+dq.front(); // = 1
+dq.back(); // = 4
+
+// iteration
+// can also iterate using [] operator
+for (int i = 0; i &lt; dq.size(); ++i) {
+    dq[i]; // = 1, 2, 3, 4
+}
+
+// deletion
+dq.pop_front(); // removes 1
+dq.pop_back(); // removes 4
+</code></pre>
+<h2 id="priority-queue">Priority Queue</h2>
+<p>Priority queues are essentially heaps.</p>
+<pre><code class="lang-cpp">#include &lt;queue&gt;
+
+// initialization
+priority_queue&lt;int&gt; pq; // max-heap
+priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt; min_pq; // min-heap
+
+// insertion
+pq.push(7);
+pq.push(42);
+
+// access
+pq.top(); // = 42, because max-heap
+
+// delete
+pq.pop(); // removes 42
+
+pq.top(); // = 7
+</code></pre>
+<h2 id="sort">Sort</h2>
+<pre><code class="lang-cpp">#include &lt;algorithm&gt;
+// ^ for sort
+#include &lt;functional&gt;
+// ^ for greater&lt;&gt;
+
+vector&lt;int&gt; vec;
+
+// ascending order
+sort(vec.begin(), vec.end());
+
+// descending order
+sort(vec.begin(), vec.end(), std::greater&lt;int&gt;());
+</code></pre>
+
+        </div>
+    <script src="js/prism.js" charset="utf-8"></script>
+    <a target="_blank" href="https://github.com/polybuildr/code-quickref"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+    </body>
+</html>
