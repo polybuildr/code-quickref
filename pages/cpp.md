@@ -23,7 +23,9 @@ In case of any mistakes below, please please [file an issue on the GitHub repo](
 
 ### C++11
 
-C++11 is a version of C++ with several (awesome) new features (some of which are used in this page). To compile code as C++11, pass a <code>-std=c++11</code> flag to your compiler.
+C++11 is a version of C++ with several (awesome) new features (some of which are used in this page). I've tried to mention which feature came with C++11 when I discuss the feature.
+
+To compile code as C++11, pass a <code>-std=c++11</code> flag to your compiler.
 
 ```bash
 g++ -std=c++11 file.cpp
