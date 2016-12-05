@@ -2,6 +2,7 @@
 
 ## Contents
 
+- [Common Stuff](#common-stuff)
 - [Vector](#vector)
 - [Map](#map)
 - [Set](#set)
@@ -11,6 +12,45 @@
 - [Priority Queue](#priority-queue)
 - [Sort](#sort)
 - [Binary Search](#binary-search)
+
+## Common Stuff
+
+### .size()
+
+All containers support a <code class="language-cpp">.size()</code> that reports the number of elements in the container.
+
+```cpp
+vector<int> v = {1, 2, 3, 4};
+v.size(); // = 4
+
+map<int, int> mp;
+mp[2] = 4;
+mp[3] = 9;
+mp.size(); // = 2
+
+// etc.
+```
+
+### .empty()
+
+All containers support a <code class="language-cpp">.empty()</code> that reports whether they are empty or not.
+
+```cpp
+vector<int> v = {1, 2, 3, 4};
+v.empty(); // = false
+
+vector<int> v2;
+v2.empty(); // true
+
+map<int, int> mp;
+mp[2] = 4;
+mp.empty(); // = false
+
+map<int, int> mp;
+mp.empty(); // = true
+
+// etc.
+```
 
 ## Vector
 

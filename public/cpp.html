@@ -12,6 +12,7 @@
             <h1 id="c-standard-library-quickref">C++ Standard Library Quickref</h1>
 <h2 id="contents">Contents</h2>
 <ul>
+<li><a href="#common-stuff">Common Stuff</a></li>
 <li><a href="#vector">Vector</a></li>
 <li><a href="#map">Map</a></li>
 <li><a href="#set">Set</a></li>
@@ -22,6 +23,36 @@
 <li><a href="#sort">Sort</a></li>
 <li><a href="#binary-search">Binary Search</a></li>
 </ul>
+<h2 id="common-stuff">Common Stuff</h2>
+<h3 id="-size-">.size()</h3>
+<p>All containers support a <code class="language-cpp">.size()</code> that reports the number of elements in the container.</p>
+<pre><code class="lang-cpp">vector&lt;int&gt; v = {1, 2, 3, 4};
+v.size(); // = 4
+
+map&lt;int, int&gt; mp;
+mp[2] = 4;
+mp[3] = 9;
+mp.size(); // = 2
+
+// etc.
+</code></pre>
+<h3 id="-empty-">.empty()</h3>
+<p>All containers support a <code class="language-cpp">.empty()</code> that reports whether they are empty or not.</p>
+<pre><code class="lang-cpp">vector&lt;int&gt; v = {1, 2, 3, 4};
+v.empty(); // = false
+
+vector&lt;int&gt; v2;
+v2.empty(); // true
+
+map&lt;int, int&gt; mp;
+mp[2] = 4;
+mp.empty(); // = false
+
+map&lt;int, int&gt; mp;
+mp.empty(); // = true
+
+// etc.
+</code></pre>
 <h2 id="vector">Vector</h2>
 <pre><code class="lang-cpp">#include &lt;vector&gt;
 
