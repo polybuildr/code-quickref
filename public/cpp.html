@@ -234,7 +234,7 @@ sort(vec.begin(), vec.end());
 sort(vec.begin(), vec.end(), std::greater&lt;int&gt;());
 </code></pre>
 <h2 id="binary-search">Binary search</h2>
-<p>All the binary search algorithms assume that the vector you give them is sorted. If not sorted, you will need to sort it first.</p>
+<p>Binary search assumes that the vector you give it is sorted. If not sorted, you will need to sort it first.</p>
 <pre><code class="lang-cpp">#include &lt;vector&gt;
 #include &lt;algorithm&gt;
 
@@ -242,15 +242,6 @@ vector&lt;int&gt; v = {1, 2, 4, 4, 6, 10}; // C++11 style
 
 binary_search(v.begin(), v.end(), 4); // = true
 binary_search(v.begin(), v.end(), 42); // = false
-
-auto lower_it = lower_bound(v.begin(), v.end(), 4);
-auto lower_it2 = lower_bound(v.begin(), v.end(), 42);
-
-lower_it == v.end(); // false
-lower_it2 == v.end(); // true
-
-// can subtract begin iterator to find index
-lower_it - v.begin(); // = 1
 </code></pre>
 
         </div>
