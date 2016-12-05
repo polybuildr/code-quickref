@@ -110,7 +110,7 @@ p.second; // 10
 p.first = 10;
 p.first; // 10
 
-// another way to initialize
+// another way to initialize in C++11
 auto p2 = make_pair(5, 10); // types are inferred
 ```
 <small class="to-top">[▲ back to top](#contents)</small>
