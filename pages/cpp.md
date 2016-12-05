@@ -75,6 +75,8 @@ When **not writing production code**, instead of including all the respective he
 // initialization
 vector<int> vec;
 
+vector<int> vec2 = {1, 2, 3, 4}; // C++11
+
 // insertion
 vec.push_back(42);
 vec.push_back(7);
