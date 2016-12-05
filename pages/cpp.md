@@ -62,13 +62,19 @@ vector<int> vec;
 
 // insertion
 vec.push_back(42);
+vec.push_back(7);
 
 // access
 vec[0]; // = 42
 
 // iteration
 for (int i = 0; i < vec.size(); ++i) {
-    vec[i]; // = 42
+    vec[i]; // = 42, 7
+}
+
+// C++11 style iteration
+for (int x: vec) {
+    x; // = 42, 7
 }
 ```
 
