@@ -12,6 +12,7 @@
             <h1 id="c-standard-library-quickref">C++ Standard Library Quickref</h1>
 <h2 id="contents">Contents</h2>
 <ul>
+<li>Containers<ul>
 <li><a href="#common-stuff">Common Stuff</a></li>
 <li><a href="#vector">Vector</a></li>
 <li><a href="#map">Map</a></li>
@@ -20,8 +21,14 @@
 <li><a href="#queue">Queue</a></li>
 <li><a href="#deque">Deque</a></li>
 <li><a href="#priority-queue">Priority Queue</a></li>
+</ul>
+</li>
+<li>Algorithms<ul>
 <li><a href="#sort">Sort</a></li>
 <li><a href="#binary-search">Binary Search</a></li>
+</ul>
+</li>
+<li><a href="#strings">Strings</a></li>
 </ul>
 <h2 id="common-stuff">Common Stuff</h2>
 <h3 id="-size-">.size()</h3>
@@ -313,6 +320,34 @@ it - v.begin(); // = 3, since index is 3
 // also returns iterator to 5
 auto it2 = upper_bound(v.begin(), v.end(), 3);
 it2 - v.begin(); // = 3
+</code></pre>
+<h2 id="strings">Strings</h2>
+<pre><code class="lang-cpp">#include &lt;string&gt;
+
+// initialization
+string s;
+// equivalent to string s = &quot;&quot;;
+
+// concatenation
+string s2 = &quot;wor&quot; + &quot;ld&quot;;
+
+// appending (many versions available)
+s += &#39;H&#39;; // char
+s += &quot;ello&quot;; // C-string
+s += s2; // C++ string
+// s = &quot;Helloworld&quot;
+
+// inserting at a position (many versions available)
+s.insert(5, &quot;@@&quot;);
+// s = &quot;Hello@@world&quot;
+
+// erasing (many versions available)
+s.erase(5, 2); // delete 2 chars from pos 5
+// s = &quot;Helloworld&quot;
+
+// substring
+string part = s.substr(1, 4); // from pos 1, 4 chars
+// part = &quot;ello&quot;
 </code></pre>
 
         </div>

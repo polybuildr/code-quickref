@@ -2,16 +2,19 @@
 
 ## Contents
 
-- [Common Stuff](#common-stuff)
-- [Vector](#vector)
-- [Map](#map)
-- [Set](#set)
-- [Stack](#stack)
-- [Queue](#queue)
-- [Deque](#deque)
-- [Priority Queue](#priority-queue)
-- [Sort](#sort)
-- [Binary Search](#binary-search)
+- Containers
+    - [Common Stuff](#common-stuff)
+    - [Vector](#vector)
+    - [Map](#map)
+    - [Set](#set)
+    - [Stack](#stack)
+    - [Queue](#queue)
+    - [Deque](#deque)
+    - [Priority Queue](#priority-queue)
+- Algorithms
+    - [Sort](#sort)
+    - [Binary Search](#binary-search)
+- [Strings](#strings)
 
 ## Common Stuff
 
@@ -357,4 +360,35 @@ it - v.begin(); // = 3, since index is 3
 // also returns iterator to 5
 auto it2 = upper_bound(v.begin(), v.end(), 3);
 it2 - v.begin(); // = 3
+```
+
+## Strings
+
+```cpp
+#include <string>
+
+// initialization
+string s;
+// equivalent to string s = "";
+
+// concatenation
+string s2 = "wor" + "ld";
+
+// appending (many versions available)
+s += 'H'; // char
+s += "ello"; // C-string
+s += s2; // C++ string
+// s = "Helloworld"
+
+// inserting at a position (many versions available)
+s.insert(5, "@@");
+// s = "Hello@@world"
+
+// erasing (many versions available)
+s.erase(5, 2); // delete 2 chars from pos 5
+// s = "Helloworld"
+
+// substring
+string part = s.substr(1, 4); // from pos 1, 4 chars
+// part = "ello"
 ```
