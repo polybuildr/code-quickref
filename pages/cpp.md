@@ -60,7 +60,7 @@ mp.empty(); // = true
 
 ### bits/stdc++.h
 
-When **not writing production code**, instead of including all the respective header files required, just the <code class="language-cpp">&lt;bits/stdc++.h&gt;</code> header file can be included.
+When **not writing production code**, instead of including all the respective header files required, just the <code class="language-cpp">&lt;bits/stdc++.h&gt;</code> header file can be included. (Might not work on Macs.)
 
 ```cpp
 #include <bits/stdc++.h>
