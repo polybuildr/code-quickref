@@ -47,7 +47,8 @@ mp.size(); // = 2
 </code></pre>
 <h3 id="-empty-">.empty()</h3>
 <p>All containers support a <code class="language-cpp">.empty()</code> that reports whether they are empty or not.</p>
-<pre><code class="lang-cpp">vector&lt;int&gt; v = {1, 2, 3, 4};
+<pre><code class="lang-cpp">vector&lt;int&gt; v;
+v.push_back(10);
 v.empty(); // = false
 
 vector&lt;int&gt; v2;
