@@ -198,12 +198,13 @@ A FIFO (first in first out) container.
 queue<int> q;
 
 // insertion
-q.push_back(42);
-q.push_back(7);
-q.push_back(0);
+q.push(42);
+q.push(7);
+q.push(0);
 
 // access
 q.front(); // = 42
+q.back(); // = 0
 
 // front -> [42, 7, 0] <- back
 
@@ -211,11 +212,11 @@ q.front(); // = 42
 q.size(); // = 3
 
 // deletion
-q.pop_front(); // removes 42
+q.pop(); // removes 42
 
 q.front(); // = 7
 
-q.pop_front(); // removes 7
+q.pop(); // removes 7
 
 // size
 q.size(); // = 1
