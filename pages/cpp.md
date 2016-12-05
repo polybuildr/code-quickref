@@ -64,6 +64,7 @@ When **not writing production code**, instead of including all the respective he
 ```cpp
 #include <bits/stdc++.h>
 ```
+<small class="to-top">[▲ back to top](#contents)</small>
 
 ## Vector
 
@@ -90,6 +91,7 @@ for (int x: vec) {
     x; // = 42, 7
 }
 ```
+<small class="to-top">[▲ back to top](#contents)</small>
 
 ## Map
 
@@ -146,6 +148,7 @@ for (auto kv: mp) {
 }
 
 ```
+<small class="to-top">[▲ back to top](#contents)</small>
 
 ## Set
 
@@ -179,6 +182,7 @@ for (int x: st) {
 // deletion
 st.erase(7); // removes 7
 ```
+<small class="to-top">[▲ back to top](#contents)</small>
 
 ## Stack
 
@@ -205,6 +209,7 @@ stk.pop(); // removes 42
 // size
 stk.size(); // = 0
 ```
+<small class="to-top">[▲ back to top](#contents)</small>
 
 ## Queue
 
@@ -240,6 +245,7 @@ q.pop(); // removes 7
 // size
 q.size(); // = 1
 ```
+<small class="to-top">[▲ back to top](#contents)</small>
 
 ## Deque
 
@@ -272,6 +278,7 @@ for (int i = 0; i < dq.size(); ++i) {
 dq.pop_front(); // removes 1
 dq.pop_back(); // removes 4
 ```
+<small class="to-top">[▲ back to top](#contents)</small>
 
 ## Priority Queue
 
@@ -296,6 +303,7 @@ pq.pop(); // removes 42
 
 pq.top(); // = 7
 ```
+<small class="to-top">[▲ back to top](#contents)</small>
 
 ## Sort
 
@@ -313,6 +321,7 @@ sort(vec.begin(), vec.end());
 // descending order
 sort(vec.begin(), vec.end(), std::greater<int>());
 ```
+<small class="to-top">[▲ back to top](#contents)</small>
 
 ## Binary search
 
@@ -363,6 +372,7 @@ it - v.begin(); // = 3, since index is 3
 auto it2 = upper_bound(v.begin(), v.end(), 3);
 it2 - v.begin(); // = 3
 ```
+<small class="to-top">[▲ back to top](#contents)</small>
 
 ## Strings
 
@@ -394,3 +404,4 @@ s.erase(5, 2); // delete 2 chars from pos 5
 string part = s.substr(1, 4); // from pos 1, 4 chars
 // part = "ello"
 ```
+<small class="to-top">[▲ back to top](#contents)</small>

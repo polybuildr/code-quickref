@@ -65,6 +65,7 @@ mp.empty(); // = true
 <p>When <strong>not writing production code</strong>, instead of including all the respective header files required, just the <code class="language-cpp">&lt;bits/stdc++.h&gt;</code> header file can be included.</p>
 <pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
 </code></pre>
+<p><small class="to-top"><a href="#contents">▲ back to top</a></small></p>
 <h2 id="vector">Vector</h2>
 <pre><code class="lang-cpp">#include &lt;vector&gt;
 
@@ -88,6 +89,7 @@ for (int x: vec) {
     x; // = 42, 7
 }
 </code></pre>
+<p><small class="to-top"><a href="#contents">▲ back to top</a></small></p>
 <h2 id="map">Map</h2>
 <p>C++11 has two kinds of maps: <code class="language-cpp">map</code> (logarithmic time operations)and <code class="language-cpp">unordered_map</code> (average constant time operations).</p>
 <pre><code class="lang-cpp">#include &lt;map&gt;
@@ -139,6 +141,7 @@ for (auto kv: mp) {
     mp.second; // value
 }
 </code></pre>
+<p><small class="to-top"><a href="#contents">▲ back to top</a></small></p>
 <h2 id="set">Set</h2>
 <p>C++11 has two kinds of sets: <code class="language-cpp">set</code> (logarithmic time operations) and <code class="language-cpp">unordered_set</code> (average constant time operations).</p>
 <pre><code class="lang-cpp">#include &lt;set&gt;
@@ -168,6 +171,7 @@ for (int x: st) {
 // deletion
 st.erase(7); // removes 7
 </code></pre>
+<p><small class="to-top"><a href="#contents">▲ back to top</a></small></p>
 <h2 id="stack">Stack</h2>
 <p>Stacks are LIFO (last in first out) containers.</p>
 <pre><code class="lang-cpp">#include &lt;stack&gt;
@@ -190,6 +194,7 @@ stk.pop(); // removes 42
 // size
 stk.size(); // = 0
 </code></pre>
+<p><small class="to-top"><a href="#contents">▲ back to top</a></small></p>
 <h2 id="queue">Queue</h2>
 <p>A FIFO (first in first out) container.</p>
 <pre><code class="lang-cpp">#include &lt;queue&gt;
@@ -221,6 +226,7 @@ q.pop(); // removes 7
 // size
 q.size(); // = 1
 </code></pre>
+<p><small class="to-top"><a href="#contents">▲ back to top</a></small></p>
 <h2 id="deque">Deque</h2>
 <p>A double-ended queue.</p>
 <pre><code class="lang-cpp">#include &lt;deque&gt;
@@ -249,6 +255,7 @@ for (int i = 0; i &lt; dq.size(); ++i) {
 dq.pop_front(); // removes 1
 dq.pop_back(); // removes 4
 </code></pre>
+<p><small class="to-top"><a href="#contents">▲ back to top</a></small></p>
 <h2 id="priority-queue">Priority Queue</h2>
 <p>Priority queues are essentially heaps.</p>
 <pre><code class="lang-cpp">#include &lt;queue&gt;
@@ -269,6 +276,7 @@ pq.pop(); // removes 42
 
 pq.top(); // = 7
 </code></pre>
+<p><small class="to-top"><a href="#contents">▲ back to top</a></small></p>
 <h2 id="sort">Sort</h2>
 <pre><code class="lang-cpp">#include &lt;algorithm&gt;
 // ^ for sort
@@ -283,6 +291,7 @@ sort(vec.begin(), vec.end());
 // descending order
 sort(vec.begin(), vec.end(), std::greater&lt;int&gt;());
 </code></pre>
+<p><small class="to-top"><a href="#contents">▲ back to top</a></small></p>
 <h2 id="binary-search">Binary search</h2>
 <p>Binary search assumes that the vector you give it is sorted. If not sorted, you will need to sort it first.</p>
 <pre><code class="lang-cpp">#include &lt;vector&gt;
@@ -322,6 +331,7 @@ it - v.begin(); // = 3, since index is 3
 auto it2 = upper_bound(v.begin(), v.end(), 3);
 it2 - v.begin(); // = 3
 </code></pre>
+<p><small class="to-top"><a href="#contents">▲ back to top</a></small></p>
 <h2 id="strings">Strings</h2>
 <pre><code class="lang-cpp">#include &lt;string&gt;
 
@@ -350,6 +360,7 @@ s.erase(5, 2); // delete 2 chars from pos 5
 string part = s.substr(1, 4); // from pos 1, 4 chars
 // part = &quot;ello&quot;
 </code></pre>
+<p><small class="to-top"><a href="#contents">▲ back to top</a></small></p>
 
         </div>
     <script src="js/prism.js" charset="utf-8"></script>
