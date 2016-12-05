@@ -73,6 +73,8 @@ mp.empty(); // = true
 // initialization
 vector&lt;int&gt; vec;
 
+vector&lt;int&gt; vec2 = {1, 2, 3, 4}; // C++11
+
 // insertion
 vec.push_back(42);
 vec.push_back(7);
@@ -332,6 +334,9 @@ it - v.begin(); // = 1, since index is 1
 // returns iterator to 5
 auto it2 = lower_bound(v.begin(), v.end(), 3);
 it2 - v.begin(); // = 3
+
+// returns end iterator if nothing found
+lower_bound(v.begin(), v.end(), 100) == v.end(); // true
 </code></pre>
 <p>Upper bound returns an iterator pointing to the first element which is <strong>greater than</strong> the given element.</p>
 <pre><code class="lang-cpp">#include &lt;vector&gt;
@@ -346,6 +351,9 @@ it - v.begin(); // = 3, since index is 3
 // also returns iterator to 5
 auto it2 = upper_bound(v.begin(), v.end(), 3);
 it2 - v.begin(); // = 3
+
+// returns end iterator if nothing found
+upper_bound(v.begin(), v.end(), 100) == v.end(); // true
 </code></pre>
 <p><small class="to-top"><a href="#contents">▲ back to top</a></small></p>
 <h2 id="strings">Strings</h2>

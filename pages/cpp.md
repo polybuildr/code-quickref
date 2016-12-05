@@ -376,6 +376,9 @@ it - v.begin(); // = 1, since index is 1
 // returns iterator to 5
 auto it2 = lower_bound(v.begin(), v.end(), 3);
 it2 - v.begin(); // = 3
+
+// returns end iterator if nothing found
+lower_bound(v.begin(), v.end(), 100) == v.end(); // true
 ```
 
 Upper bound returns an iterator pointing to the first element which is **greater than** the given element.
@@ -393,6 +396,9 @@ it - v.begin(); // = 3, since index is 3
 // also returns iterator to 5
 auto it2 = upper_bound(v.begin(), v.end(), 3);
 it2 - v.begin(); // = 3
+
+// returns end iterator if nothing found
+upper_bound(v.begin(), v.end(), 100) == v.end(); // true
 ```
 <small class="to-top">[▲ back to top](#contents)</small>
 
