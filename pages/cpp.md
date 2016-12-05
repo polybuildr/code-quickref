@@ -10,6 +10,7 @@
 - [Deque](#deque)
 - [Priority Queue](#priority-queue)
 - [Sort](#sort)
+- [Binary Search](#binary-search)
 
 ## Vector
 
@@ -251,4 +252,27 @@ sort(vec.begin(), vec.end());
 
 // descending order
 sort(vec.begin(), vec.end(), std::greater<int>());
+```
+
+## Binary search
+
+All the binary search algorithms assume that the vector you give them is sorted. If not sorted, you will need to sort it first.
+
+```cpp
+#include <vector>
+#include <algorithm>
+
+vector<int> v = {1, 2, 4, 4, 6, 10}; // C++11 style
+
+binary_search(v.begin(), v.end(), 4); // = true
+binary_search(v.begin(), v.end(), 42); // = false
+
+auto lower_it = lower_bound(v.begin(), v.end(), 4);
+auto lower_it2 = lower_bound(v.begin(), v.end(), 42);
+
+lower_it == v.end(); // false
+lower_it2 == v.end(); // true
+
+// can subtract begin iterator to find index
+lower_it - v.begin(); // = 1
 ```
