@@ -21,6 +21,14 @@ In case of any mistakes below, please please [file an issue on the GitHub repo](
 
 ## Common Stuff
 
+### C++11
+
+C++11 is a version of C++ with several (awesome) new features (some of which are used in this page). To compile code as C++11, pass a <code>-std=c++11</code> flag to your compiler.
+
+```bash
+g++ -std=c++11 file.cpp
+```
+
 ### auto
 
 Since C++11, types can be inferred using <code class="language-cpp">auto</code>.
