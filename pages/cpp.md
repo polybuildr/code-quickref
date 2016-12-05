@@ -1,4 +1,4 @@
-# C++ Standard Library Quick-ref
+# C++ Standard Library Quickref
 
 ## Contents
 
