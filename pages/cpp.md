@@ -21,6 +21,22 @@ In case of any mistakes below, please please [file an issue on the GitHub repo](
 
 ## Common Stuff
 
+### auto
+
+Since C++11, types can be inferred using <code class="language-cpp">auto</code>.
+
+```cpp
+// instead of
+int x = 5;
+// can use
+auto x = 5;
+
+// This is more useful in cases like:
+map<char,int>::iterator it = mymap.begin();
+// vs
+auto it = mymap.begin(); // type inferred
+```
+
 ### .size()
 
 All containers support a <code class="language-cpp">.size()</code> that reports the number of elements in the container.
