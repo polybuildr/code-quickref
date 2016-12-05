@@ -16,6 +16,7 @@
 <li>Containers<ul>
 <li><a href="#common-stuff">Common Stuff</a></li>
 <li><a href="#vector">Vector</a></li>
+<li><a href="#pair">Pair</a></li>
 <li><a href="#map">Map</a></li>
 <li><a href="#set">Set</a></li>
 <li><a href="#stack">Stack</a></li>
@@ -88,6 +89,21 @@ for (int i = 0; i &lt; vec.size(); ++i) {
 for (int x: vec) {
     x; // = 42, 7
 }
+</code></pre>
+<p><small class="to-top"><a href="#contents">▲ back to top</a></small></p>
+<h2 id="pair">Pair</h2>
+<p>Pairs are containers with two elements.</p>
+<pre><code class="lang-cpp">#include &lt;utility&gt;
+
+pair&lt;int, int&gt; p(5, 10);
+p.first; // 5
+p.second; // 10
+
+p.first = 10;
+p.first; // 10
+
+// another way to initialize
+auto p2 = make_pair(5, 10); // types are inferred
 </code></pre>
 <p><small class="to-top"><a href="#contents">▲ back to top</a></small></p>
 <h2 id="map">Map</h2>

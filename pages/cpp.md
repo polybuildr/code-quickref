@@ -7,6 +7,7 @@ In case of any mistakes below, please please [file an issue on the GitHub repo](
 - Containers
     - [Common Stuff](#common-stuff)
     - [Vector](#vector)
+    - [Pair](#pair)
     - [Map](#map)
     - [Set](#set)
     - [Stack](#stack)
@@ -90,6 +91,25 @@ for (int i = 0; i < vec.size(); ++i) {
 for (int x: vec) {
     x; // = 42, 7
 }
+```
+<small class="to-top">[▲ back to top](#contents)</small>
+
+## Pair
+
+Pairs are containers with two elements.
+
+```cpp
+#include <utility>
+
+pair<int, int> p(5, 10);
+p.first; // 5
+p.second; // 10
+
+p.first = 10;
+p.first; // 10
+
+// another way to initialize
+auto p2 = make_pair(5, 10); // types are inferred
 ```
 <small class="to-top">[▲ back to top](#contents)</small>
 
