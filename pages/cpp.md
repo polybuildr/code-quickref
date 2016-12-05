@@ -322,3 +322,39 @@ vector<int> v = {1, 2, 4, 4, 6, 10}; // C++11 style
 binary_search(v.begin(), v.end(), 4); // = true
 binary_search(v.begin(), v.end(), 42); // = false
 ```
+
+### lower and upper bound
+
+Lower bound returns an iterator pointing to the first element which is **not less than** the given element.
+
+```cpp
+#include <vector>
+#include <algorithm>
+
+vector<int> v = {1, 2, 2, 5};
+
+// returns iterator to first 2
+auto it = lower_bound(v.begin(), v.end(), 2);
+it - v.begin(); // = 1, since index is 1
+
+// returns iterator to 5
+auto it2 = lower_bound(v.begin(), v.end(), 3);
+it2 - v.begin(); // = 3
+```
+
+Upper bound returns an iterator pointing to the first element which is **greater than** the given element.
+
+```cpp
+#include <vector>
+#include <algorithm>
+
+vector<int> v = {1, 2, 2, 5};
+
+// returns iterator to 5
+auto it = upper_bound(v.begin(), v.end(), 2);
+it - v.begin(); // = 3, since index is 3
+
+// also returns iterator to 5
+auto it2 = upper_bound(v.begin(), v.end(), 3);
+it2 - v.begin(); // = 3
+```
