@@ -33,7 +33,7 @@ for (int i = 0; i < vec.size(); ++i) {
 
 ## Map
 
-C++11 has two kinds of maps: <code class="language-cpp">map</code> (logarithmic time operations)and <code class="language-cpp">unordered_map</code> (constant time operations).
+C++11 has two kinds of maps: <code class="language-cpp">map</code> (logarithmic time operations)and <code class="language-cpp">unordered_map</code> (average constant time operations).
 
 ```cpp
 #include <map>
@@ -89,7 +89,7 @@ for (auto kv: mp) {
 
 ## Set
 
-C++11 has two kinds of sets: <code class="language-cpp">set</code> (logarithmic time operations) and <code class="language-cpp">unordered_set</code> (constant time operations).
+C++11 has two kinds of sets: <code class="language-cpp">set</code> (logarithmic time operations) and <code class="language-cpp">unordered_set</code> (average constant time operations).
 
 ```cpp
 #include <set>
