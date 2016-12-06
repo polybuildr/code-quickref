@@ -82,8 +82,8 @@ map<int, int> mp;
 mp[2] = 4;
 mp.empty(); // = false
 
-map<int, int> mp;
-mp.empty(); // = true
+map<int, int> mp2;
+mp2.empty(); // = true
 
 // etc.
 ```
