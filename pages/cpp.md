@@ -52,8 +52,11 @@ auto it = mymap.begin(); // type inferred
 All containers support a <code class="language-cpp">.size()</code> that reports the number of elements in the container.
 
 ```cpp
-vector<int> v = {1, 2, 3, 4};
-v.size(); // = 4
+vector<int> v;
+v.push_back(10);
+v.push_back(20);
+v.push_back(30);
+v.size(); // = 3
 
 map<int, int> mp;
 mp[2] = 4;
