@@ -348,6 +348,7 @@ priority_queue<int, vector<int>, greater<int> > min_pq; // min-heap
 // insertion
 pq.push(7);
 pq.push(42);
+pq.push(3);
 
 // access
 pq.top(); // = 42, because max-heap
