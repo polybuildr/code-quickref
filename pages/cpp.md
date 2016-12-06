@@ -1,5 +1,7 @@
 # C++ Standard Library Quickref
 
+This is a _simplified_ quick reference of a few things from the C++ Standard Library.
+
 In case of any mistakes below, please please [file an issue on the GitHub repo](https://github.com/polybuildr/code-quickref/issues/new).
 
 ## Contents
