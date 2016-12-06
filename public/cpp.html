@@ -344,6 +344,7 @@ binary_search(v.begin(), v.end(), 4); // = true
 binary_search(v.begin(), v.end(), 42); // = false
 </code></pre>
 <h3 id="lower-and-upper-bound">lower and upper bound</h3>
+<p>The following functions take logarithmic time on arrays, vectors, etc. but <strong>NOT</strong> on maps, sets, etc.</p>
 <p>Lower bound returns an iterator pointing to the first element which is <strong>not less than</strong> the given element.</p>
 <pre><code class="lang-cpp">#include &lt;vector&gt;
 #include &lt;algorithm&gt;
