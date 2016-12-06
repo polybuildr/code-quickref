@@ -23,7 +23,7 @@ a:hover {
 
 @media screen and (max-width: 400px) {
     body {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .page {
@@ -38,5 +38,7 @@ a:hover {
         box-shadow: 0 0 1px 1px #ddd inset;
         padding: .5em;
         margin: 5px;
+        font-size: 14px;
+        line-height: 1.4;
     }
 }
