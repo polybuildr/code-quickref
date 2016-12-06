@@ -51,7 +51,7 @@ map&lt;char, int&gt;::iterator it = mymap.begin();
 auto it = mymap.begin(); // type inferred
 </code></pre>
 <h3 id="-size-">.size()</h3>
-<p>All containers support a <code class="language-cpp">.size()</code> that reports the number of elements in the container.</p>
+<p>All containers support a <code class="language-math">O(1)</code> <code class="language-cpp">.size()</code> that reports the number of elements in the container.</p>
 <pre><code class="lang-cpp">vector&lt;int&gt; v;
 v.push_back(10);
 v.push_back(20);
@@ -96,11 +96,11 @@ vector&lt;int&gt; vec;
 
 vector&lt;int&gt; vec2 = {1, 2, 3, 4}; // C++11
 
-// insertion
+// insertion, O(1) avg
 vec.push_back(42);
 vec.push_back(7);
 
-// access
+// access, O(1)
 vec[0]; // = 42
 
 // iteration
@@ -136,10 +136,10 @@ auto p2 = make_pair(5, 10); // types are inferred
 
 // initialization
 
-// O (log n) insert, access, delete
+// O(log n) insert, access, delete
 map&lt;int, int&gt; mp;
 
-// O (1) insert, access, delete
+// O(1) insert, access, delete
 // same signatures as normal map&lt;&gt;
 unordered_map&lt;int, int&gt; omp;
 
@@ -149,20 +149,20 @@ map&lt;int, int, std::greater&lt;int&gt; &gt; mp2;
 // #include &lt;functional&gt; for std::greater
 // default is std::less&lt;int&gt;
 
-// insertion
+// insertion, O(log n)
 mp[2] = 4;
 mp[3] = 9;
 
-// access
+// access, O(log n)
 mp[2]; // = 4
 
-// check for existence
+// check for existence, O(log n)
 mp.find(2) != mp.end(); // true
 mp.find(234) != mp.end(); // false
 mp.count(2); // = 1
 mp.count(234); // = 0
 
-// deletion
+// deletion, O(log n)
 mp.erase(2); // removes {2: 4}
 
 // iteration
@@ -186,13 +186,17 @@ for (auto kv: mp) {
 <p>C++11 has two kinds of sets: <code class="language-cpp">set</code> (logarithmic time operations) and <code class="language-cpp">unordered_set</code> (average constant time operations).</p>
 <pre><code class="lang-cpp">#include &lt;set&gt;
 
+// O(log n) insert, access, delete
 set&lt;int&gt; st;
 
-// insertion
+// O(1) insert, access, delete
+unordered_set&lt;int&gt; ost;
+
+// insertion, O(log n)
 st.insert(42);
 st.insert(7);
 
-// check existence
+// check existence, O(log n)
 st.find(42) != st.end(); // true
 st.find(234) != st.end(); // false
 st.count(42); // = 1
@@ -208,7 +212,7 @@ for (int x: st) {
     x; // = 7, 42
 }
 
-// deletion
+// deletion, O(log n)
 st.erase(7); // removes 7
 </code></pre>
 <p><small class="to-top"><a href="#contents">▲ back to top</a></small></p>
@@ -219,16 +223,16 @@ st.erase(7); // removes 7
 // initialization
 stack&lt;int&gt; stk;
 
-// insertion
+// insertion, O(1)
 stk.push(42);
 
-// access
+// access, O(1)
 stk.top(); // = 42
 
-// size
+// size, O(1)
 stk.size(); // = 1
 
-// deletion
+// deletion, O(1)
 stk.pop(); // removes 42
 
 // size
@@ -242,12 +246,12 @@ stk.size(); // = 0
 // initialization
 queue&lt;int&gt; q;
 
-// insertion
+// insertion, O(1)
 q.push(42);
 q.push(7);
 q.push(0);
 
-// access
+// access, O(1)
 q.front(); // = 42
 q.back(); // = 0
 
@@ -256,7 +260,7 @@ q.back(); // = 0
 // size
 q.size(); // = 3
 
-// deletion
+// deletion, O(1)
 q.pop(); // removes 42
 
 q.front(); // = 7
@@ -273,7 +277,7 @@ q.size(); // = 1
 
 deque&lt;int&gt; dq;
 
-// insertion
+// insertion, O(1)
 dq.push_back(3);
 dq.push_back(4);
 dq.push_front(2);
@@ -281,7 +285,7 @@ dq.push_front(1);
 
 // front -&gt; [1, 2, 3, 4] &lt;- back
 
-// access
+// access, O(1)
 dq.front(); // = 1
 dq.back(); // = 4
 
@@ -291,7 +295,7 @@ for (int i = 0; i &lt; dq.size(); ++i) {
     dq[i]; // = 1, 2, 3, 4
 }
 
-// deletion
+// deletion, O(1)
 dq.pop_front(); // removes 1
 dq.pop_back(); // removes 4
 </code></pre>
@@ -304,15 +308,15 @@ dq.pop_back(); // removes 4
 priority_queue&lt;int&gt; pq; // max-heap
 priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt; min_pq; // min-heap
 
-// insertion
+// insertion, O(log n)
 pq.push(7);
 pq.push(42);
 pq.push(3);
 
-// access
+// access, O(1)
 pq.top(); // = 42, because max-heap
 
-// delete
+// delete, O(log n)
 pq.pop(); // removes 42
 
 pq.top(); // = 7
@@ -326,10 +330,10 @@ pq.top(); // = 7
 
 vector&lt;int&gt; vec;
 
-// ascending order
+// ascending order, O(n log n)
 sort(vec.begin(), vec.end());
 
-// descending order
+// descending order, O(n log n)
 sort(vec.begin(), vec.end(), std::greater&lt;int&gt;());
 </code></pre>
 <p><small class="to-top"><a href="#contents">▲ back to top</a></small></p>
@@ -340,6 +344,7 @@ sort(vec.begin(), vec.end(), std::greater&lt;int&gt;());
 
 vector&lt;int&gt; v = {1, 2, 4, 4, 6, 10}; // C++11 style
 
+// O(n log n) for vectors, arrays
 binary_search(v.begin(), v.end(), 4); // = true
 binary_search(v.begin(), v.end(), 42); // = false
 </code></pre>

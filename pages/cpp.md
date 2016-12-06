@@ -49,7 +49,7 @@ auto it = mymap.begin(); // type inferred
 
 ### .size()
 
-All containers support a <code class="language-cpp">.size()</code> that reports the number of elements in the container.
+All containers support a <code class="language-math">O(1)</code> <code class="language-cpp">.size()</code> that reports the number of elements in the container.
 
 ```cpp
 vector<int> v;
@@ -107,11 +107,11 @@ vector<int> vec;
 
 vector<int> vec2 = {1, 2, 3, 4}; // C++11
 
-// insertion
+// insertion, O(1) avg
 vec.push_back(42);
 vec.push_back(7);
 
-// access
+// access, O(1)
 vec[0]; // = 42
 
 // iteration
@@ -156,10 +156,10 @@ Note: <code class="language-cpp">unordered_map</code>s cannot have keys that can
 
 // initialization
 
-// O (log n) insert, access, delete
+// O(log n) insert, access, delete
 map<int, int> mp;
 
-// O (1) insert, access, delete
+// O(1) insert, access, delete
 // same signatures as normal map<>
 unordered_map<int, int> omp;
 
@@ -169,20 +169,20 @@ map<int, int, std::greater<int> > mp2;
 // #include <functional> for std::greater
 // default is std::less<int>
 
-// insertion
+// insertion, O(log n)
 mp[2] = 4;
 mp[3] = 9;
 
-// access
+// access, O(log n)
 mp[2]; // = 4
 
-// check for existence
+// check for existence, O(log n)
 mp.find(2) != mp.end(); // true
 mp.find(234) != mp.end(); // false
 mp.count(2); // = 1
 mp.count(234); // = 0
 
-// deletion
+// deletion, O(log n)
 mp.erase(2); // removes {2: 4}
 
 // iteration
@@ -211,13 +211,17 @@ C++11 has two kinds of sets: <code class="language-cpp">set</code> (logarithmic 
 ```cpp
 #include <set>
 
+// O(log n) insert, access, delete
 set<int> st;
 
-// insertion
+// O(1) insert, access, delete
+unordered_set<int> ost;
+
+// insertion, O(log n)
 st.insert(42);
 st.insert(7);
 
-// check existence
+// check existence, O(log n)
 st.find(42) != st.end(); // true
 st.find(234) != st.end(); // false
 st.count(42); // = 1
@@ -233,7 +237,7 @@ for (int x: st) {
     x; // = 7, 42
 }
 
-// deletion
+// deletion, O(log n)
 st.erase(7); // removes 7
 ```
 <small class="to-top">[▲ back to top](#contents)</small>
@@ -248,16 +252,16 @@ Stacks are LIFO (last in first out) containers.
 // initialization
 stack<int> stk;
 
-// insertion
+// insertion, O(1)
 stk.push(42);
 
-// access
+// access, O(1)
 stk.top(); // = 42
 
-// size
+// size, O(1)
 stk.size(); // = 1
 
-// deletion
+// deletion, O(1)
 stk.pop(); // removes 42
 
 // size
@@ -275,12 +279,12 @@ A FIFO (first in first out) container.
 // initialization
 queue<int> q;
 
-// insertion
+// insertion, O(1)
 q.push(42);
 q.push(7);
 q.push(0);
 
-// access
+// access, O(1)
 q.front(); // = 42
 q.back(); // = 0
 
@@ -289,7 +293,7 @@ q.back(); // = 0
 // size
 q.size(); // = 3
 
-// deletion
+// deletion, O(1)
 q.pop(); // removes 42
 
 q.front(); // = 7
@@ -310,7 +314,7 @@ A double-ended queue.
 
 deque<int> dq;
 
-// insertion
+// insertion, O(1)
 dq.push_back(3);
 dq.push_back(4);
 dq.push_front(2);
@@ -318,7 +322,7 @@ dq.push_front(1);
 
 // front -> [1, 2, 3, 4] <- back
 
-// access
+// access, O(1)
 dq.front(); // = 1
 dq.back(); // = 4
 
@@ -328,7 +332,7 @@ for (int i = 0; i < dq.size(); ++i) {
     dq[i]; // = 1, 2, 3, 4
 }
 
-// deletion
+// deletion, O(1)
 dq.pop_front(); // removes 1
 dq.pop_back(); // removes 4
 ```
@@ -345,15 +349,15 @@ Priority queues are essentially heaps.
 priority_queue<int> pq; // max-heap
 priority_queue<int, vector<int>, greater<int> > min_pq; // min-heap
 
-// insertion
+// insertion, O(log n)
 pq.push(7);
 pq.push(42);
 pq.push(3);
 
-// access
+// access, O(1)
 pq.top(); // = 42, because max-heap
 
-// delete
+// delete, O(log n)
 pq.pop(); // removes 42
 
 pq.top(); // = 7
@@ -370,10 +374,10 @@ pq.top(); // = 7
 
 vector<int> vec;
 
-// ascending order
+// ascending order, O(n log n)
 sort(vec.begin(), vec.end());
 
-// descending order
+// descending order, O(n log n)
 sort(vec.begin(), vec.end(), std::greater<int>());
 ```
 <small class="to-top">[▲ back to top](#contents)</small>
@@ -388,6 +392,7 @@ Binary search assumes that the vector you give it is sorted. If not sorted, you 
 
 vector<int> v = {1, 2, 4, 4, 6, 10}; // C++11 style
 
+// O(n log n) for vectors, arrays
 binary_search(v.begin(), v.end(), 4); // = true
 binary_search(v.begin(), v.end(), 42); // = false
 ```
