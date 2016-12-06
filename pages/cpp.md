@@ -42,7 +42,7 @@ int x = 5;
 auto x = 5;
 
 // This is more useful in cases like:
-map<char,int>::iterator it = mymap.begin();
+map<char, int>::iterator it = mymap.begin();
 // vs
 auto it = mymap.begin(); // type inferred
 ```
