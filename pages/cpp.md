@@ -183,7 +183,7 @@ mp.count(2); // = 1
 mp.count(234); // = 0
 
 // deletion
-mp.erase(2) // removes {2: 4}
+mp.erase(2); // removes {2: 4}
 
 // iteration
 for (auto it = mp.begin(); it != mp.end(); ++it) {
