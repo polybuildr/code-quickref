@@ -1,3 +1,5 @@
-for i in pages/*.md; do echo $i; node output-page.js $i; done
-# no bower_components right now
-# for i in $(grep -oE 'bower_components/[^"]*' public/*.html); do echo $i; done
+for i in pages/*.md; do echo -n "Building $i... "; node output-page.js $i; echo "Done"; done
+echo -n "Copying visualizer... "
+rm -rf public/vis; cp vis -r public/vis;
+echo "Done."
+for i in $(grep -oE 'bower_components/[^"]*' vis/*.html); do echo $i; rsync -R $i public/; done
