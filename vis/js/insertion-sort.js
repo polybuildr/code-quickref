@@ -213,7 +213,7 @@ stage.elevateAndHightlightAndGiveTmpIdTo = function (idx, amount) {
     stage.setNext(() => {
         var elem = getBar(idx);
         elem.id = id;
-        return highlightBar(elem).then(() => moveBarUp(elem, amount))
+        return highlightBar(elem).then(() => moveBarUp(elem, amount)).delay(longDelay);
     });
     return id;
 }
@@ -226,7 +226,7 @@ stage.lowerAndUnhighlightAndGiveBackId = function (curId, realIdx, amount) {
     stage.setNext(() => {
         var barElem = document.getElementById(curId);
         barElem.id = 'bar' + realIdx;
-        return moveBarDown(barElem, amount).then(() => unhighlightBar(barElem));
+        return moveBarDown(barElem, amount).then(() => unhighlightBar(barElem)).delay(shortDelay);
     });
 }
 
@@ -247,7 +247,7 @@ stage.moveBarToIdxAndAssignId = function (selector, newIdx) {
             barElem = getBar(selector);
         }
         barElem.id = 'bar' + newIdx;
-        return Velocity(barElem, {x: 60 * newIdx}, shortDuration);
+        return Velocity(barElem, {x: 60 * newIdx}, shortDuration).delay(shortDelay);
     });
 }
 
@@ -260,9 +260,10 @@ stage.moveBarToIdxAndAssignIdAndLowerAndUnhighlight = function (selector, newIdx
             barElem = getBar(selector);
         }
         barElem.id = 'bar' + newIdx;
-        return Velocity(barElem, {x: 60 * newIdx}, shortDuration)
+        return Velocity(barElem, {x: 60 * newIdx}, longDuration)
             .then(() => moveBarDown(barElem, amount))
-            .then(() => unhighlightBar(barElem));
+            .then(() => unhighlightBar(barElem))
+            .delay(shortDelay);
     });
 }
 
