@@ -145,10 +145,6 @@ stage.playAll = function () {
     }
 }
 
-stage.highlight = function (idx) {
-    stage.setNext(() => highlightBar((getBar(idx))));
-}
-
 stage.highlight2 = function (i, j) {
     stage.setNext(() => Promise.all([
         highlightBar((getBar(i))),
@@ -167,10 +163,6 @@ stage.changeHighlightGreen = function (wasGreenIdx, makeGreenIdx) {
     ]).delay(longDelay));
 }
 
-stage.unhighlight = function (idx) {
-    stage.setNext(() => unhighlightBar((getBar(idx))));
-}
-
 stage.uh1g2 = function (i, j) {
     stage.setNext(() => Promise.all([
         unhighlightBar(getBar(i)),
@@ -180,10 +172,6 @@ stage.uh1g2 = function (i, j) {
 
 stage.dim = function (idx) {
     stage.setNext(() => dimBar(getBar(idx)));
-}
-
-stage.setI = function (i) {
-    stage.setNext(() => {stage._i = i; return movePointer1ToIdx(i).delay(shortDelay)});
 }
 
 stage.setJ = function (j) {

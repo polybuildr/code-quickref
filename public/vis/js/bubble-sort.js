@@ -158,14 +158,6 @@ stage.dim = function (idx) {
     stage.setNext(() => dimBar(getBar(idx)));
 }
 
-stage.setI = function (i) {
-    stage.setNext(() => {stage._i = i; return movePointer1ToIdx(i)});
-}
-
-stage.setJ = function (j) {
-    stage.setNext(() => {stage._j = j; return movePointer2ToIdx(j)});
-}
-
 stage.setIdxs = function (i, j) {
     stage.setNext(() => {
         stage._i = i;

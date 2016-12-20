@@ -124,15 +124,6 @@ var stage = {
     nextFuncs: [],
 };
 
-stage.swap = function (i, j) {
-    stage.setNext(() => {
-        var tmp = stage.elems[i];
-        stage.elems[i] = stage.elems[j];
-        stage.elems[j] = tmp;
-        return swapBars(i, j).delay(longDelay);
-    });
-},
-
 stage.currentPromise = new Promise(function (resolve, reject) {
     stage.begin = resolve;
 });
@@ -152,60 +143,8 @@ stage.playAll = function () {
     }
 }
 
-stage.highlight = function (idx) {
-    stage.setNext(() => highlightBar((getBar(idx))));
-}
-
-stage.highlight2 = function (i, j) {
-    stage.setNext(() => Promise.all([
-        highlightBar((getBar(i))),
-        highlightBar((getBar(j))),
-    ]).delay(longDelay));
-}
-
-stage.highlightGreen = function (idx) {
-    stage.setNext(() => highlightBar((getBar(idx)), '#00ff00').delay(longDelay));
-}
-
-stage.changeHighlightGreen = function (wasGreenIdx, makeGreenIdx) {
-    stage.setNext(() => Promise.all([
-        highlightBar((getBar(makeGreenIdx)), '#00ff00'),
-        unhighlightBar((getBar(wasGreenIdx)))
-    ]).delay(longDelay));
-}
-
-stage.unhighlight = function (idx) {
-    stage.setNext(() => unhighlightBar((getBar(idx))));
-}
-
-stage.uh1g2 = function (i, j) {
-    stage.setNext(() => Promise.all([
-        unhighlightBar(getBar(i)),
-        highlightBar((getBar(j)), '#00ff00'),
-    ]).delay(shortDelay));
-}
-
-stage.dim = function (idx) {
-    stage.setNext(() => dimBar(getBar(idx)));
-}
-
 stage.setI = function (i) {
     stage.setNext(() => {stage._i = i; return movePointer1ToIdx(i).delay(shortDelay)});
-}
-
-stage.setJ = function (j) {
-    stage.setNext(() => {stage._j = j; return movePointer2ToIdx(j).delay(shortDelay)});
-}
-
-stage.setIdxs = function (i, j) {
-    stage.setNext(() => {
-        stage._i = i;
-        stage._j = j;
-        return Promise.all([
-            movePointer1ToIdx(i),
-            movePointer2ToIdx(j)
-        ]).delay(shortDelay);
-    });
 }
 
 stage.elevateAndHightlightAndGiveTmpIdTo = function (idx, amount) {
@@ -213,29 +152,17 @@ stage.elevateAndHightlightAndGiveTmpIdTo = function (idx, amount) {
     stage.setNext(() => {
         var elem = getBar(idx);
         elem.id = id;
-        return highlightBar(elem).then(() => moveBarUp(elem, amount))
+        return highlightBar(elem).then(() => moveBarUp(elem, amount)).delay(longDelay);
     });
     return id;
-}
-
-stage.lower = function (idx, amount) {
-    stage.setNext(() => {console.log('lowered id'); return moveBarDown(getBar(idx), amount)});
 }
 
 stage.lowerAndUnhighlightAndGiveBackId = function (curId, realIdx, amount) {
     stage.setNext(() => {
         var barElem = document.getElementById(curId);
         barElem.id = 'bar' + realIdx;
-        return moveBarDown(barElem, amount).then(() => unhighlightBar(barElem));
+        return moveBarDown(barElem, amount).then(() => unhighlightBar(barElem)).delay(shortDelay);
     });
-}
-
-stage.moveBarToIdx = function (barIdx, posIdx) {
-    stage.setNext(() => moveBarToIdx(getBar(idx), idx));
-}
-
-stage.giveBackIdTo = function (elem, id) {
-    stage.setNext(() => {elem.id = id});
 }
 
 stage.moveBarToIdxAndAssignId = function (selector, newIdx) {
@@ -247,7 +174,7 @@ stage.moveBarToIdxAndAssignId = function (selector, newIdx) {
             barElem = getBar(selector);
         }
         barElem.id = 'bar' + newIdx;
-        return Velocity(barElem, {x: 60 * newIdx}, shortDuration);
+        return Velocity(barElem, {x: 60 * newIdx}, shortDuration).delay(shortDelay);
     });
 }
 
@@ -260,9 +187,10 @@ stage.moveBarToIdxAndAssignIdAndLowerAndUnhighlight = function (selector, newIdx
             barElem = getBar(selector);
         }
         barElem.id = 'bar' + newIdx;
-        return Velocity(barElem, {x: 60 * newIdx}, shortDuration)
+        return Velocity(barElem, {x: 60 * newIdx}, longDuration)
             .then(() => moveBarDown(barElem, amount))
-            .then(() => unhighlightBar(barElem));
+            .then(() => unhighlightBar(barElem))
+            .delay(shortDelay);
     });
 }
 
