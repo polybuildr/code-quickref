@@ -134,7 +134,7 @@ stage.setNext = function (actionFunc) {
     stage.nextFuncs.push(actionFunc);
 }
 
-stage.next = function (actionFunc) {
+stage.next = function () {
     stage.currentPromise = stage.currentPromise.then(stage.nextFuncs.shift());
 }
 
