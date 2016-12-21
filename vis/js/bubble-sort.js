@@ -1,7 +1,10 @@
 var pointer1 = document.querySelector('#green-pointer');
 var pointer2 = document.querySelector('#red-pointer');
 
-var commonDuration = 500;
+var shortDuration = 500;
+var longDuration = 1000;
+var shortDelay = 500;
+var longDelay = 1000;
 
 function getBar(idx) {
     return document.querySelector('#bar' + idx);
@@ -11,30 +14,26 @@ function movePointer1ToIdx(idx) {
     return Velocity(pointer1, {
         translateX: 60 * idx,
         translateY: ['+=0', '-60']
-    }, {
-        duration: commonDuration,
-    });
+    }, longDuration);
 }
 
 function movePointer2ToIdx(idx) {
     return Velocity(pointer2, {
         translateX: [60 * idx],
         translateY: ['+=0', '-60']
-    }, {
-        duration: commonDuration,
-    });
+    }, longDuration);
 }
 
 function highlightBar(bar) {
-    return Velocity(bar, {fill: '#ff9800'}, commonDuration);
+    return Velocity(bar, {fill: '#ff9800'}, shortDuration);
 }
 
 function unhighlightBar(bar) {
-    return Velocity(bar, {fill: '#057cb8'}, commonDuration);
+    return Velocity(bar, {fill: '#057cb8'}, shortDuration);
 }
 
 function dimBar(bar) {
-    return Velocity(bar, {fill: '#01334d'}, commonDuration);
+    return Velocity(bar, {fill: '#01334d'}, shortDuration);
 }
 
 function delayPromise(ms) {
@@ -54,7 +53,7 @@ Promise.delay = function (ms) {
 }
 
 function moveBarUp(barElem, amount) {
-    return Velocity(barElem, { translateY: '+=' + amount })
+    return Velocity(barElem, { translateY: '+=' + amount }, longDuration)
 }
 
 function moveBarDown(barElem, amount) {
@@ -62,7 +61,7 @@ function moveBarDown(barElem, amount) {
 }
 
 function moveBarRight(barElem, amount) {
-    return Velocity(barElem, { translateX: '+=' + amount })
+    return Velocity(barElem, { translateX: '+=' + amount }, longDuration)
 }
 
 function moveBarLeft(barElem, amount) {
@@ -98,7 +97,7 @@ function swapBars(idx1, idx2) {
     .then(() => moveBarDown(bar1, height2 + 10))
     .then(() => {
         swapIds(bar1, bar2);
-    });
+    }).delay(shortDelay);
 }
 
 var stage = {
@@ -113,7 +112,7 @@ stage.swap = function (i, j) {
         var tmp = stage.elems[i];
         stage.elems[i] = stage.elems[j];
         stage.elems[j] = tmp;
-        return swapBars(i, j)
+        return swapBars(i, j);
     });
 },
 
@@ -141,7 +140,7 @@ stage.consider = function () {
         () => Promise.all([
             highlightBar(getBar(stage._i)),
             highlightBar(getBar(stage._j))
-        ]).delay(500)
+        ]).delay(longDelay)
     );
 };
 
@@ -150,12 +149,12 @@ stage.moveOn = function (i, j) {
         () => Promise.all([
             unhighlightBar(getBar(stage._i)),
             unhighlightBar(getBar(stage._j))
-        ])
+        ]).delay(shortDelay)
     );
 };
 
 stage.dim = function (idx) {
-    stage.setNext(() => dimBar(getBar(idx)));
+    stage.setNext(() => dimBar(getBar(idx)).delay(shortDelay));
 }
 
 stage.setIdxs = function (i, j) {
@@ -165,7 +164,7 @@ stage.setIdxs = function (i, j) {
         return Promise.all([
             movePointer1ToIdx(i),
             movePointer2ToIdx(j)
-        ]);
+        ]).delay(shortDelay);
     });
 }
 
