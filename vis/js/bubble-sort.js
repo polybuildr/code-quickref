@@ -38,7 +38,7 @@ function dimBar(bar) {
 }
 
 function delayPromise(ms) {
-    return new Promise(function (resolve, reject) {
+    return new Promise(function (resolve) {
         setTimeout(function () {
             resolve();
         }, ms);
@@ -117,7 +117,7 @@ stage.swap = function (i, j) {
     });
 },
 
-stage.currentPromise = new Promise(function (resolve, reject) {
+stage.currentPromise = new Promise(function (resolve) {
     stage.begin = resolve;
 });
 
