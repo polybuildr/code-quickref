@@ -199,8 +199,8 @@ for (auto kv: mp) {
     // to avoid making copies, use:
     // (auto &kv: mp)
 
-    mp.first; // key
-    mp.second; // value
+    kv.first; // key
+    kv.second; // value
 }
 
 ```
